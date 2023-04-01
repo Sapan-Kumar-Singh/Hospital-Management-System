@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Collection</title>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Patient Data</h1>
+        
+        <form method="POST" name="sample">
+        <br>
+            Name: <input type="text" name="name">
+            Email: <input type="email" name="mail">
+            Purpose Of Appointment : <input type="text" name="purpose">
+            Mobile Number : <input type="number" name="mobilenumber">
+            <br><br>
+            <input type="button" name="add" value="Add Data" onclick="addStudent();" class="btn btn-success"><hr>
+        
+                    <table id="tbl" class="table" border="1">
+                        <thead>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Purpose Of Appointment</th>
+                        <th>Mobile Number</th>
+                        <th> Delete</th>
+                        <th>Update</th>
+                       
+                        </thead>
+                        
+                         <tbody>
+                             
+                         </tbody>
+                     </table>
+        
+        </form>
+        
+         <script type="text/javascript">
+               
+            function addStudent()
+            { 
+                var name=document.sample.name.value; 
+                var email=document.sample.mail.value;
+                var purposeofappointment=document.sample.purpose.value;
+                var mobnumber=document.sample.mobilenumber.value;
+                var tr = document.createElement('tr');
+                
+                var td1 = tr.appendChild(document.createElement('td'));
+                var td2 = tr.appendChild(document.createElement('td'));
+                var td3 = tr.appendChild(document.createElement('td'));
+                var td4 = tr.appendChild(document.createElement('td'));
+                var td5 = tr.appendChild(document.createElement('td'));
+                var td6 = tr.appendChild(document.createElement('td'));
+                
+                td1.innerHTML=name;
+                td2.innerHTML=email;
+                td3.innerHTML=purposeofappointment;
+                td4.innerHTML=mobnumber;
+
+                td5.innerHTML='<input type="button" name="del" value="Delete" onclick="delStudent(this);" class="btn btn-danger">';
+                td6.innerHTML='<input type="button" name="up" value="Update" onclick="UpStud(this);" class="btn btn-primary">';
+        
+                document.getElementById("tbl").appendChild(tr);
+            }
+        
+            function UpStud(stud){
+        
+                var name=document.sample.name.value; 
+                var email=document.sample.mail.value;
+                var purposeofappointment=document.sample.purpose.value;
+                var mobnumber=document.sample.mobilenumber.value;
+
+                var tr = document.createElement('tr');
+                var s = stud.parentNode.parentNode;
+                var tr = document.createElement('tr');
+                
+             
+                var td1 = tr.appendChild(document.createElement('td'));
+                var td2 = tr.appendChild(document.createElement('td'));
+                var td3 = tr.appendChild(document.createElement('td'));
+                var td4 = tr.appendChild(document.createElement('td'));
+                var td5 = tr.appendChild(document.createElement('td'));
+                var td6 = tr.appendChild(document.createElement('td'));
+                
+                
+              
+                td1.innerHTML='<input type="text" name="name1">';
+                td2.innerHTML='<input type="email" name="email1">';
+                td3.innerHTML='<input type="text" name="purpsoe1">';
+                td4.innerHTML='<input type="text" name="mobnumber1">';
+                td5.innerHTML='<input type="button" name="del" value="Delete" onclick="delStudent(this);" class="btn btn-danger">';
+                td6.innerHTML='<input type="button" name="up" value="Update" onclick="addUpStud(this);" class="btn btn-primary">';
+        
+                document.getElementById("tbl").replaceChild(tr, s);
+            }
+        
+            function addUpStud(stud){
+               
+                var name=document.sample.name.value; 
+                var email=document.sample.mail.value;
+                var purposeofappointment=document.sample.purpose.value;
+                var mobnumber=document.sample.mobilenumber.value;
+ 
+                var s = stud.parentNode.parentNode;
+                var tr = document.createElement('tr');
+                
+              
+                var td1 = tr.appendChild(document.createElement('td'));
+                var td2 = tr.appendChild(document.createElement('td'));
+                var td3 = tr.appendChild(document.createElement('td'));
+                var td4 = tr.appendChild(document.createElement('td'));
+                var td5 = tr.appendChild(document.createElement('td'));
+                var td6 = tr.appendChild(document.createElement('td'));
+                
+                
+               
+                td1.innerHTML='<input type="text" name="name1">';
+                td2.innerHTML='<input type="email" name="email1">';
+                td3.innerHTML='<input type="text" name="purpsoe1">';
+                td4.innerHTML='<input type="text" name="mobnumber1">';
+                td5.innerHTML='<input type="button" name="del" value="Delete" onclick="delStudent(this);" class="btn btn-danger">';
+                td6.innerHTML='<input type="button" name="up" value="Update" onclick="addUpStud(this);" class="btn btn-primary">';
+        
+                document.getElementById("tbl").replaceChild(tr, s);
+            }
+        
+            function delStudent(Stud){
+                var s=Stud.parentNode.parentNode;
+                s.parentNode.removeChild(s);
+            }
+            
+            
+            </script>
+        </div>
+        
+
+
+</body>
+</html>
